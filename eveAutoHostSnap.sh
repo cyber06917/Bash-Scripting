@@ -14,7 +14,7 @@ snapshot_fun() {
   echo "ISO exists. Creating a snapshot..."
   if cd "$snap_loca"; then
     # Uncomment to enable snapshot creation
-    #/opt/qemu/bin/qemu-img commit virtioa.qcow2 || echo "Snapshot creation failed."
+    /opt/qemu/bin/qemu-img commit virtioa.qcow2 || echo "Snapshot creation failed."
     cd /opt/unetlab/addons/qemu/$dir/ && rm -f cdrom.iso
     echo "Snapshot function executed."
   else
@@ -34,7 +34,7 @@ renameISO_fun() {
       cd "/opt/unetlab/addons/qemu/"  
       cp *.iso /opt/unetlab/addons/qemu/$dir/cdrom.iso && echo "ISO renamed successfully." ||  echo "ISO rename failed."
       # Uncomment to create a virtual disk
-      #/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 25G
+      /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 25G
     else
       echo "Failed to access directory: $dir"
     fi
